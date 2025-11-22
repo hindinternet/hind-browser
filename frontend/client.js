@@ -32,3 +32,13 @@ export const apiClient = {
     }
   },
 };
+// ===== Wallet Connect Placeholder =====
+function connectWallet() {
+    alert('Web3 wallet connect feature coming soon!');
+    // Future: yahan MetaMask/WalletConnect actual integration aayega
+}
+
+// Button ko event attach karo (agar id 'wallet-btn' hai)
+if (document.getElementById('wallet-btn')) {
+    document.getElementById('wallet-btn').onclick = connectWallet;
+}
