@@ -1,11 +1,10 @@
-
-// server.js
+   // server.js
 const express = require('express');        // Express import karo
 const apiRoutes = require('./api/index');  // API module import
 
-const app = express();                     // <-- app define
+const app = express();                     // <-- app define kar diya
 
-app.use(express.json());                   // JSON support
+app.use(express.json());                   // JSON request support
 app.use('/api', apiRoutes);               // API routes
 
 // Test route
