@@ -5,3 +5,5 @@ module.exports = {
         return { success: true };
     }
 };
+const apiRoutes = require("./api/index");
+app.use("/api", apiRoutes);
