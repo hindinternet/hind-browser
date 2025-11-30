@@ -1,4 +1,2 @@
-@echo off
-echo Starting Hind Browser server...
-node ..\backend\server.js
-pause
+echo Starting HIND Browser frontend...
+start http://127.0.0.1:8080
