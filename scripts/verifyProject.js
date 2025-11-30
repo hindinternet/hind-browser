@@ -1,41 +1,46 @@
+// HIND Browser Project Verifier
+
 const fs = require("fs");
-const path = require("path");
 
-const requiredStructure = {
-    "api": ["routes", "controllers", "services", "middlewares", "README.md"],
-    "assets": [],
-    "backend": [],
-    "config": [],
-    "core-engine": [],
-    "database": [],
-    "frontend": [],
-    "scripts": [],
-    "security": [],
-    "tests": []
-};
+const requiredFolders = [
+    "api",
+    "assets",
+    "backend",
+    "config",
+    "core-engine",
+    "database",
+    "frontend",
+    "scripts",
+    "security",
+    "tests"
+];
 
-console.log("\n🔍 PROJECT STRUCTURE CHECK STARTED...\n");
+const requiredFrontendFiles = [
+    "frontend/index.html",
+    "frontend/style.css",
+    "frontend/script.js",
+    "frontend/client.js"
+];
 
-for (const folder in requiredStructure) {
-    const folderPath = path.join(process.cwd(), folder);
+console.log("🔍 Verifying HIND Browser Project Structure...\n");
 
-    if (!fs.existsSync(folderPath)) {
-        console.log(`❌ Missing Folder: ${folder}`);
-        continue;
+// Check folders
+requiredFolders.forEach(folder => {
+    if (fs.existsSync(folder)) {
+        console.log("✔ Folder OK:", folder);
+    } else {
+        console.log("❌ Missing Folder:", folder);
     }
+});
 
-    console.log(`✔ Folder OK: ${folder}`);
+// Check files
+requiredFrontendFiles.forEach(file => {
+    if (fs.existsSync(file)) {
+        console.log("✔ File OK:", file);
+    } else {
+        console.log("❌ Missing File:", file);
+    }
+});
 
-    const subFiles = requiredStructure[folder];
+console.log("\n🏁 Verification Complete!");
 
-    subFiles.forEach(file => {
-        const fullPath = path.join(folderPath, file);
-        if (!fs.existsSync(fullPath)) {
-            console.log(`   ❌ Missing: ${folder}/${file}`);
-        } else {
-            console.log(`   ✔ OK: ${folder}/${file}`);
-        }
-    });
-}
-
-console.log("\n✅ CHECK COMPLETE!\n");
