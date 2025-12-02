@@ -63,14 +63,6 @@ router.get("/", (req, res) => {
     });
 });
 
+// EXPORT
 module.exports = router;
-// Temporary empty API module
-module.exports = {};
-echo "const express = require('express');
-const router = express.Router();
 
-router.get('/test', (req, res) => {
-    res.json({ message: 'API is working!' });
-});
-
-module.exports = router;" > api/index.js
